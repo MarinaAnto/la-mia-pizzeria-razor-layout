@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+ <!--1Dichiarare una variabile valorizzandola con il nostro nome.
+Dichiarare un'altra variabile valorizzandola con il nostro cognome.
+Stampare il nostro nome e cognome all'interno di un tag h2.
+-->
+@{
+    string name= "Marina Antonella";
+    string surname = "Armas Aguilar";
+}
+<h2>@name @surname</h2>
+
+<!--2. Creare una funzione che stampa la somma dei numeri che vanno da 1 a n (con n passato come parametro - n incluso)
+Stampare dentro uno span il risultato.
+-->
+@{
+    int somma(int n)
+    { int risultato=0;
+        for (int i=1;i <=n; ++i){
+            risultato += i;
+        }
+        return risultato;
+    }
+}
+<span> @risulato</span>
+
+
+<!--3. Contare quante volte la lettera a è presente nalla frase "nel mezzo del cammin di nostra vita" e stampare questo valore in pagina
+-->
+@{
+    string frase = "nel mezzo del cammin di nostra vita ";
+    var a=frase.Count();
+}<p>@a</p>
+
+<!--4. Creare una List<int> di 20 numeri interi (generati random da 1 a 90, 1 e 90 inclusi) e mostrare in pagina solo i numeri compresi tra 20 e 70
+    -->
+@{
+    List<int> numeri = new List<int>();
+
+
+    for ( int i = 1; i <= 20; i++)
+    {
+        Random rand = new Random(91);
+        numeri.Add();
+
+        rand.Next();
+    }
+   
+    if (20 <=numeri  <= 70)
+    {
+        return numeri;
+    }
+}
+<!--5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi
+-->
+@{
+    DateTime dataora =new DateTime();
+    int anno= dataora.Year ;
+    int mese= dataora.Month ;
+    int giorno= dataora.Day ;
+    int ore= dataora.Hour ;
+    int minuti= dataora.Minute ;
+    int secondi= dataora.Second;
+}
+<p>@anno-@mese-@giorno @ore:@minuti:@secondi</p>
+<!--
+6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina
+a. la data di 7 giorni fa
+b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
+c.che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)-->
+
+@{
+    int settegiornifa=giorno - 7;
+    var giornosettimana= dataora.DayOfWeek;
+    DateTime annoprox= dataora.AddYears(1).AddMonths(1);
+    var settimanaannonuovo = annoprox.DayOfWeek;
+}
+<p>@settegiornifa      @giornosettimana    @annoprox     @settimanaannonuovo</p>
